@@ -115,14 +115,14 @@ def preprocessing_task1(args):
         return predictors, target
 
     #process all required folders
-    predictors_test, target_test = process_folder('L3DAS_Task1_dev', args)
+    predictors_test, target_test = process_folder('L3DAS22_Task1_dev', args)
     if args.training_set == 'train100':
-        predictors_train, target_train = process_folder('L3DAS_Task1_train100', args)
+        predictors_train, target_train = process_folder('L3DAS22_Task1_train100', args)
     elif args.training_set == 'train360':
-        predictors_train, target_train = process_folder('L3DAS_Task1_train360', args)
+        predictors_train, target_train = process_folder('L3DAS22_Task1_train360', args)
     elif args.training_set == 'both':
-        predictors_train100, target_train100 = process_folder('L3DAS_Task1_train100')
-        predictors_train360, target_train360 = process_folder('L3DAS_Task1_train360')
+        predictors_train100, target_train100 = process_folder('L3DAS22_Task1_train100')
+        predictors_train360, target_train360 = process_folder('L3DAS22_Task1_train360')
         predictors_train = predictors_train100 + predictors_train360
         target_train = target_train100 + target_train360
 
@@ -187,7 +187,7 @@ def preprocessing_task2(args):
              'Finger_snapping','Keys_jangling','Knock',
              'Laughter','Male_speech_and_man_speaking',
              'Printer','Scissors','Telephone','Writing']
-    file_size=60.0
+    file_size=30.0
     max_label_distance = 2.  #maximum xyz value (serves for normalization)
 
     def process_folder(folder, args):
@@ -232,7 +232,7 @@ def preprocessing_task2(args):
 
                 #compute matrix label
                 label = uf.csv_to_matrix_task2(target_path, sound_classes_dict_task2,
-                                               dur=60, step=args.frame_len/1000., max_loc_value=2.,
+                                               dur=30, step=args.frame_len/1000., max_loc_value=2.,
                                                no_overlaps=args.no_overlaps)  #eric func
 
                 #label = uf.get_label_task2(target_path,0.1,file_size,sr_task2,          #giuseppe func
@@ -265,8 +265,8 @@ def preprocessing_task2(args):
 
         return predictors, target
 
-    train_folder = os.path.join(args.input_path, 'L3DAS_Task2_train')
-    test_folder = os.path.join(args.input_path, 'L3DAS_Task2_dev')
+    train_folder = os.path.join(args.input_path, 'L3DAS22_Task2_train')
+    test_folder = os.path.join(args.input_path, 'L3DAS22_Task2_dev')
 
     predictors_train, target_train = process_folder(train_folder, args)
     predictors_test, target_test = process_folder(test_folder, args)
@@ -311,9 +311,9 @@ if __name__ == '__main__':
     #i/o
     parser.add_argument('--task', type=int,
                         help='task to be pre-processed')
-    parser.add_argument('--input_path', type=str, default='DATASETS/Task1',
+    parser.add_argument('--input_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/DATASETS/Task2',
                         help='directory where the dataset has been downloaded')
-    parser.add_argument('--output_path', type=str, default='DATASETS/processed',
+    parser.add_argument('--output_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/DATASETS/processed',
                         help='where to save the numpy matrices')
     #processing type
     parser.add_argument('--train_val_split', type=float, default=0.8,
