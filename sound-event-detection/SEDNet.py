@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import os
 import numpy as np
 import utility_functions as uf
-from hypercomplex_layers import QuaternionConv, QuaternionLinear, PHConv, PHMLinear
+from hypercomplex_layers import QuaternionConv, QuaternionLinear, PHMConv, PHMLinear
 
 '''
 Pytorch implementation of the original SELDNet: https://arxiv.org/pdf/1807.00129.pdf
@@ -291,7 +291,7 @@ class PHMSeldnet_augmented(nn.Module):
                 pool = [p[0],1]
             conv_layers.append(
                 nn.Sequential(
-                    PHConv(n, in_chans, out_features=curr_chans,
+                    PHMConv(n, in_chans, out_features=curr_chans,
                                 kernel_size=3, stride=1, padding=1, cuda=False),  #padding 1 = same with kernel = 3
                     nn.BatchNorm2d(c),
                     nn.ReLU(),
@@ -383,7 +383,7 @@ class Full_PHMSeldnet_augmented(nn.Module):
                 pool = [p[0],1]
             conv_layers.append(
                 nn.Sequential(
-                    PHConv(n, in_chans, out_features=curr_chans,
+                    PHMConv(n, in_chans, out_features=curr_chans,
                                 kernel_size=3, stride=1, padding=1, cuda=False),  #padding 1 = same with kernel = 3
                     nn.BatchNorm2d(c),
                     nn.ReLU(),
