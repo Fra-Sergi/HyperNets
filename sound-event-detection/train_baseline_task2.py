@@ -349,19 +349,19 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     #saving/loading parameters
-    parser.add_argument('--results_path', type=str, default='RESULTS/Task2',
+    parser.add_argument('--results_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/RESULTS/Task2',
                         help='Folder to write results dicts into')
-    parser.add_argument('--checkpoint_dir', type=str, default='RESULTS/Task2',
+    parser.add_argument('--checkpoint_dir', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/RESULTS/Task2',
                         help='Folder to write checkpoints into')
     parser.add_argument('--load_model', type=str, default=None,
                         help='Reload a previously trained model (whole task model)')
     #dataset parameters
-    parser.add_argument('--training_predictors_path', type=str, default='DATASETS/processed/task2_predictors_train.pkl')
-    parser.add_argument('--training_target_path', type=str, default='DATASETS/processed/task2_target_train.pkl')
-    parser.add_argument('--validation_predictors_path', type=str, default='DATASETS/processed/task2_predictors_validation.pkl')
-    parser.add_argument('--validation_target_path', type=str, default='DATASETS/processed/task2_target_validation.pkl')
-    parser.add_argument('--test_predictors_path', type=str, default='DATASETS/processed/task2_predictors_test.pkl')
-    parser.add_argument('--test_target_path', type=str, default='DATASETS/processed/task2_target_test.pkl')
+    parser.add_argument('--training_predictors_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/DATASETS/processed/task2_predictors_train.pkl')
+    parser.add_argument('--training_target_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/DATASETS/processed/task2_target_train.pkl')
+    parser.add_argument('--validation_predictors_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/DATASETS/processed/task2_predictors_validation.pkl')
+    parser.add_argument('--validation_target_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/DATASETS/processed/task2_target_validation.pkl')
+    parser.add_argument('--test_predictors_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/DATASETS/processed/task2_predictors_test.pkl')
+    parser.add_argument('--test_target_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/DATASETS/processed/task2_target_test.pkl')
     #training parameters
     parser.add_argument('--gpu_id', type=int, default=0)
     parser.add_argument('--use_cuda', type=str, default='True')
