@@ -11,12 +11,12 @@ Pytorch implementation of the original SELDNet: https://arxiv.org/pdf/1807.00129
 And an augmented version of it, adapted for the output of the L#DAS21 challenge.
 '''
 
-class Seldnet_vanilla(nn.Module):
+class Sednet_vanilla(nn.Module):
     def __init__(self, time_dim, freq_dim=256, input_channels=8, output_classes=14,
                  pool_size=[[8,2],[8,2],[2,2]], pool_time=False,  n_cnn_filters=64,
                  rnn_size=128, n_rnn=2,fc_size=128, dropout_perc=0., class_overlaps=3.,
                  verbose=False):
-        super(Seldnet_vanilla, self).__init__()
+        super(Sednet_vanilla, self).__init__()
         self.verbose = verbose
         self.time_dim = time_dim
         self.freq_dim = freq_dim
@@ -83,12 +83,12 @@ class Seldnet_vanilla(nn.Module):
 
         return sed
 
-class Seldnet_augmented(nn.Module):
+class Sednet_augmented(nn.Module):
     def __init__(self, time_dim, freq_dim=256, input_channels=4, output_classes=14,
                  pool_size=[[8,2],[8,2],[2,2],[1,1]], cnn_filters=[64,128,256,512], pool_time=True,
                  rnn_size=256, n_rnn=3, fc_size=1024, dropout_perc=0.3, class_overlaps=3.,
                  verbose=False):
-        super(Seldnet_augmented, self).__init__()
+        super(Sednet_augmented, self).__init__()
         self.verbose = verbose
         self.time_dim = time_dim
         self.freq_dim = freq_dim
@@ -172,12 +172,12 @@ class Seldnet_augmented(nn.Module):
 ########################
 
 
-class QSeldnet_augmented(nn.Module):
+class QSednet_augmented(nn.Module):
     def __init__(self, time_dim, freq_dim=256, input_channels=4, output_classes=14,
                  pool_size=[[8,2],[8,2],[2,2],[1,1]], cnn_filters=[64,128,256,512], pool_time=True,
                  rnn_size=256, n_rnn=3, fc_size=1024, dropout_perc=0.3, class_overlaps=3.,
                  verbose=False):
-        super(QSeldnet_augmented, self).__init__()
+        super(QSednet_augmented, self).__init__()
         self.verbose = verbose
         self.time_dim = time_dim
         self.freq_dim = freq_dim
@@ -264,12 +264,12 @@ class QSeldnet_augmented(nn.Module):
 #################
 
 
-class PHMSeldnet_augmented(nn.Module):
+class PHMSednet_augmented(nn.Module):
     def __init__(self, time_dim, freq_dim=256, input_channels=4, output_classes=14,
                  pool_size=[[8,2],[8,2],[2,2],[1,1]], cnn_filters=[64,128,256,512], pool_time=True,
                  rnn_size=256, n_rnn=3, fc_size=1024, dropout_perc=0.3, class_overlaps=3.,
                  verbose=False, n=2):
-        super(PHMSeldnet_augmented, self).__init__()
+        super(PHMSednet_augmented, self).__init__()
         self.verbose = verbose
         self.time_dim = time_dim
         self.freq_dim = freq_dim
@@ -356,12 +356,12 @@ class PHMSeldnet_augmented(nn.Module):
 #################
 
 
-class Full_PHMSeldnet_augmented(nn.Module):
+class Full_PHMSednet_augmented(nn.Module):
     def __init__(self, time_dim, freq_dim=256, input_channels=4, output_classes=14,
                  pool_size=[[8,2],[8,2],[2,2],[1,1]], cnn_filters=[64,128,256,512], pool_time=True,
                  rnn_size=256, n_rnn=3, fc_size=1024, dropout_perc=0.3, class_overlaps=3.,
                  verbose=False, n=2):
-        super(Full_PHMSeldnet_augmented, self).__init__()
+        super(Full_PHMSednet_augmented, self).__init__()
         self.verbose = verbose
         self.time_dim = time_dim
         self.freq_dim = freq_dim
@@ -463,25 +463,25 @@ def test_model():
     #create model
     #the dimension of the input spectrogram and the pooling/processing dimension of the model
     #create 1 prediction (sed and doa) for each 100-milliseconds label frame
-    model_vanilla = Seldnet_vanilla(sp.shape[-1],pool_time=True, class_overlaps=3,input_channels=in_chans,verbose=True)
-    model_augmented = Seldnet_augmented(sp.shape[-1],pool_time=True, class_overlaps=3,input_channels=in_chans,verbose=True)
+    model_vanilla = Sednet_vanilla(sp.shape[-1],pool_time=True, class_overlaps=3,input_channels=in_chans,verbose=True)
+    model_augmented = Sednet_augmented(sp.shape[-1],pool_time=True, class_overlaps=3,input_channels=in_chans,verbose=True)
 
-    qseld = QSeldnet_augmented(sp.shape[-1],pool_time=True, class_overlaps=3,input_channels=in_chans,verbose=True)
-    phmseld_n2 = PHMSeldnet_augmented(sp.shape[-1],pool_time=True, class_overlaps=3,input_channels=in_chans,verbose=True, n=2)
-    phmseld_n4 = PHMSeldnet_augmented(sp.shape[-1],pool_time=True, class_overlaps=3,input_channels=in_chans,verbose=True, n=4)
-    phmseld_n8 = PHMSeldnet_augmented(sp.shape[-1],pool_time=True, class_overlaps=3,input_channels=in_chans,verbose=True, n=8)
+    qseld = QSednet_augmented(sp.shape[-1],pool_time=True, class_overlaps=3,input_channels=in_chans,verbose=True)
+    phmseld_n2 = PHMSednet_augmented(sp.shape[-1],pool_time=True, class_overlaps=3,input_channels=in_chans,verbose=True, n=2)
+    phmseld_n4 = PHMSednet_augmented(sp.shape[-1],pool_time=True, class_overlaps=3,input_channels=in_chans,verbose=True, n=4)
+    phmseld_n8 = PHMSednet_augmented(sp.shape[-1],pool_time=True, class_overlaps=3,input_channels=in_chans,verbose=True, n=8)
 
     print ('Input shape: ', sp.shape)
 
-    print ('\nTesting Seldnet')
+    print ('\nTesting Sednet')
     sed = model_augmented(sp)
     print ('SED shape: ', sed.shape)    #target shape sed=[batch,600(label frames),42] doa=[batch, 600(label frames),126
     params = count_parameters(model_augmented)
     print("Number of parameters", params)
 
-    # Test QSeldNet #
+    # Test QSedNet #
     sed = qseld(sp)
-    print ('\nTesting QSeldnet')    
+    print ('\nTesting QSednet')
     print ('SED shape: ', sed.shape)    #target shape sed=[batch,600(label frames),42] doa=[batch, 600(label frames),126
     params = count_parameters(qseld)
     print("Number of parameters", params)
