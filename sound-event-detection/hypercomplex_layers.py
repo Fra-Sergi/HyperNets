@@ -71,10 +71,10 @@ class PHMLinear(nn.Module):
 ## CONVOLUTIONAL PH LAYER ##
 #############################
 
-class PHConv(Module):
+class PHMConv(Module):
 
   def __init__(self, n, in_features, out_features, kernel_size, padding=0, stride=1, cuda=True):
-    super(PHConv, self).__init__()
+    super(PHMConv, self).__init__()
     self.n = n
     self.in_features = in_features
     self.out_features = out_features
