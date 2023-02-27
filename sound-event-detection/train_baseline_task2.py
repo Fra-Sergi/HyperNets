@@ -380,7 +380,7 @@ if __name__ == '__main__':
     #the following parameters produce a prediction for each 100-msecs frame
     parser.add_argument('--architecture', type=str, default='seldnet_augmented',
                         help="model's architecture, [seldnet_vanilla, seldnet_augmented, qseldnet, phmseldnet_n2, phmseldnet_n4, phmseldnet_n8]")
-    parser.add_argument('--input_channels', type=int, default=8,
+    parser.add_argument('--input_channels', type=int, default=4,
                         help="4/8 for 1/2 mics, multiply x2 if using also phase information")
     parser.add_argument('--class_overlaps', type=int, default=3,
                         help= 'max number of simultaneous sounds of the same class')
