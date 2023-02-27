@@ -364,7 +364,7 @@ if __name__ == '__main__':
     parser.add_argument('--test_target_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/DATASETS/processed/task2_target_test.pkl')
     #training parameters
     parser.add_argument('--gpu_id', type=int, default=0)
-    parser.add_argument('--use_cuda', type=str, default='True')
+    parser.add_argument('--use_cuda', type=str, default='False')
     parser.add_argument('--early_stopping', type=str, default='True')
     parser.add_argument('--fixed_seed', type=str, default='True')
 
