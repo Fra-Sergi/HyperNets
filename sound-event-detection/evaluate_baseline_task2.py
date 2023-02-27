@@ -201,7 +201,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     #i/o parameters
-    parser.add_argument('--model_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/RESULTS/Task2/checkpoint')
+    parser.add_argument('--model_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/RESULTS/Task2/checkpoint_qsednet')
     parser.add_argument('--results_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/RESULTS/Task2/metrics')
     #dataset parameters
     parser.add_argument('--predictors_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/DATASETS/processed/task2_predictors_test.pkl')
