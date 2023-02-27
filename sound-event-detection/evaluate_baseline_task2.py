@@ -201,11 +201,11 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     #i/o parameters
-    parser.add_argument('--model_path', type=str, default='RESULTS/Task2/checkpoint')
-    parser.add_argument('--results_path', type=str, default='RESULTS/Task2/metrics')
+    parser.add_argument('--model_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/RESULTS/Task2/checkpoint')
+    parser.add_argument('--results_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/RESULTS/Task2/metrics')
     #dataset parameters
-    parser.add_argument('--predictors_path', type=str, default='DATASETS/processed/task2_predictors_test.pkl')
-    parser.add_argument('--target_path', type=str, default='DATASETS/processed/task2_target_test.pkl')
+    parser.add_argument('--predictors_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/DATASETS/processed/task2_predictors_test.pkl')
+    parser.add_argument('--target_path', type=str, default='/content/gdrive/MyDrive/project_folder/HyperNets/DATASETS/processed/task2_target_test.pkl')
     parser.add_argument('--sr', type=int, default=32000)
     #eval parameters
     parser.add_argument('--max_loc_value', type=float, default=2.,
@@ -216,9 +216,9 @@ if __name__ == '__main__':
                         help='max cartesian distance withn consider a true positive')
     #model parameters
     #the following parameters produce a prediction for each 100-msecs frame
-    parser.add_argument('--architecture', type=str, default='seldnet_augmented',
-                        help="model's architecture, can be seldnet_vanilla or seldnet_augmented")
-    parser.add_argument('--input_channels', type=int, default=8,
+    parser.add_argument('--architecture', type=str, default='sednet_augmented',
+                        help="model's architecture, can be sednet_vanilla or sednet_augmented")
+    parser.add_argument('--input_channels', type=int, default=4,
                         help="4/8 for 1/2 mics, multiply x2 if using also phase information")
     parser.add_argument('--class_overlaps', type=int, default=3,
                         help= 'max number of simultaneous sounds of the same class')
