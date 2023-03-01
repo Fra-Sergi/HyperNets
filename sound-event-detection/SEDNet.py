@@ -454,7 +454,7 @@ def test_model():
     '''
     #create dummy input spectrogram
     in_chans = 8
-    sample = np.ones((in_chans,32000*30))
+    sample = np.ones((in_chans,32000*60))
     nperseg = 512
     noverlap = 112
     sp = uf.spectrum_fast(sample, nperseg=nperseg, noverlap=noverlap, output_phase=False)
@@ -507,11 +507,10 @@ def test_model():
     params = count_parameters(phmseld_n8)
     print("Number of parameters", params)
 
-
-     print ('\nTesting Seldnet augmented')
-     print ('Input shape: ', sp.shape)
-     sed = model_vanilla(sp)
-     print ('SED shape: ', sed.shape, "| DOA shape: ", doa.shape)    #target shape sed=[batch,600(label frames),42] doa=[batch, 600(label frames),126
+    #sed = model_vanilla(sp)
+    # print ('\nTesting Seldnet augmented')
+     #print ('Input shape: ', sp.shape)
+     #print ('SED shape: ', sed.shape, "| DOA shape: ", doa.shape)    #target shape sed=[batch,600(label frames),42] doa=[batch, 600(label frames),126
 
 if __name__ == '__main__':
     test_model()
