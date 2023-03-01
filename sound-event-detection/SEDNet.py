@@ -12,7 +12,7 @@ And an augmented version of it, adapted for the output of the L#DAS21 challenge.
 '''
 
 class Sednet_vanilla(nn.Module):
-    def __init__(self, time_dim, freq_dim=256, input_channels=8, output_classes=14,
+    def __init__(self, time_dim, freq_dim=256, input_channels=4, output_classes=14,
                  pool_size=[[8,2],[8,2],[2,2]], pool_time=False,  n_cnn_filters=64,
                  rnn_size=128, n_rnn=2,fc_size=128, dropout_perc=0., class_overlaps=3.,
                  verbose=False):
