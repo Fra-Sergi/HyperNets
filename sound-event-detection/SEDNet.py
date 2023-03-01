@@ -454,7 +454,7 @@ def test_model():
     '''
     #create dummy input spectrogram
     in_chans = 8
-    sample = np.ones((in_chans,32000*60))
+    sample = np.ones((in_chans,32000*30))
     nperseg = 512
     noverlap = 112
     sp = uf.spectrum_fast(sample, nperseg=nperseg, noverlap=noverlap, output_phase=False)
