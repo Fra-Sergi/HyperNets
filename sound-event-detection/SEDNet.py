@@ -51,7 +51,7 @@ class Sednet_vanilla(nn.Module):
                           bidirectional=True, dropout=dropout_perc)
 
         self.sed = nn.Sequential(
-                    nn.Linear(256, fc_size),
+                    nn.Linear(2*256, fc_size),
                     nn.Dropout(dropout_perc),
                     nn.Linear(fc_size, sed_output_size),
                     nn.Sigmoid())
