@@ -508,10 +508,10 @@ def test_model():
     print("Number of parameters", params)
 
 
-    # print ('\nTesting Seldnet augmented')
-    # print ('Input shape: ', sp.shape)
-    # sed, doa = model_vanilla(sp)
-    # print ('SED shape: ', sed.shape, "| DOA shape: ", doa.shape)    #target shape sed=[batch,600(label frames),42] doa=[batch, 600(label frames),126
+     print ('\nTesting Seldnet augmented')
+     print ('Input shape: ', sp.shape)
+     sed = model_vanilla(sp)
+     print ('SED shape: ', sed.shape, "| DOA shape: ", doa.shape)    #target shape sed=[batch,600(label frames),42] doa=[batch, 600(label frames),126
 
 if __name__ == '__main__':
     test_model()
