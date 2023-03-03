@@ -341,7 +341,7 @@ if __name__ == '__main__':
                         help='num of overlapping samples for stft')
     parser.add_argument('--stft_window', type=str, default='hamming',
                         help='stft window_type')
-    parser.add_argument('--output_phase', type=str, default='False',
+    parser.add_argument('--output_phase', type=str, default='True',
                         help='concatenate phase channels to stft matrix')
     parser.add_argument('--predictors_len_segment', type=int, default=None,
                         help='number of segmented frames for stft data')
